@@ -146,6 +146,7 @@ class GameScene: SKScene {
                 print(dbgmsg + "Usuario acertou o nome da imagem...")
             }else {
                 print(dbgmsg + "Usuario errou o nome da imagem... ")
+                refazer(imagemExercicio: self.listaDeImagens![self.indiceAtual])
             }
         
         }
