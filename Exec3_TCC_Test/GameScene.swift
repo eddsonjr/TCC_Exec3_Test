@@ -138,6 +138,11 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         
+        
+        //Verifica se houve acerto ou erro da parte do usuario e providencia as respectivas acoes
+        if self.qtAtualDeCaracteres == 0 {
+            print(dbgmsg + "Usuario digitou a quantidade de caracteres equivalente ao nome da imagem")
+        }
        
     }
     
@@ -197,18 +202,21 @@ class GameScene: SKScene {
             print(dbgmsg + "Letra A pressionada")
             self.A_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "A_selecionado"))
             criarNomeImagem(letra: "A")
+            self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
             
         }else if (self.B_Button?.contains(point))!{
             print(dbgmsg + "Letra B pressionada")
             self.B_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "B_selecionado"))
             criarNomeImagem(letra: "B")
+            self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
             
         }else if (self.C_Button?.contains(point))! {
             print(dbgmsg + "Letra C pressionada")
             self.C_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "C_selecionado"))
             criarNomeImagem(letra: "C")
+            self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
             
             
@@ -216,122 +224,143 @@ class GameScene: SKScene {
             print(dbgmsg + "Letra D pressionada")
             self.D_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "D_selecionado"))
             criarNomeImagem(letra: "D")
-            
+            self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.E_Button?.contains(point))! {
             print(dbgmsg + "Letra E pressionada")
             self.E_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "E_selecionado"))
             criarNomeImagem(letra: "E")
-            
+           self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.F_Button?.contains(point))! {
             print(dbgmsg + "Letra F pressionada")
             self.F_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "F_selecionado"))
             criarNomeImagem(letra: "F")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.G_Button?.contains(point))! {
             print(dbgmsg + "Letra G pressionada")
             self.G_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "G_selecionado"))
             criarNomeImagem(letra: "G")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.H_Button?.contains(point))! {
             print(dbgmsg + "Letra H pressionada")
             self.H_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "H_selecionado"))
             criarNomeImagem(letra: "H")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.I_Button?.contains(point))! {
             print(dbgmsg + "Letra I pressionada")
             self.I_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "I_selecionado"))
              criarNomeImagem(letra: "I")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.J_Button?.contains(point))! {
             print(dbgmsg + "Letra J pressionada")
             self.J_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "J_selecionado"))
             criarNomeImagem(letra: "J")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.K_Button?.contains(point))! {
             print(dbgmsg + "Letra K pressionada")
             self.K_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "K_selecionado"))
             criarNomeImagem(letra: "K")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.L_Button?.contains(point))! {
             print(dbgmsg + "Letra L pressionada")
             self.L_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "L_selecionado"))
              criarNomeImagem(letra: "L")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.M_Button?.contains(point))! {
             print(dbgmsg + "Letra M pressionada")
             self.M_Button?.texture = trocarTextura(imagem:#imageLiteral(resourceName: "M_selecionado"))
              criarNomeImagem(letra: "M")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.N_Button?.contains(point))! {
             print(dbgmsg + "Letra N pressionada")
             self.N_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "N_selecionado"))
              criarNomeImagem(letra: "N")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.O_Button?.contains(point))! {
             print(dbgmsg + "Letra O pressionada")
             self.O_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "O_selecionado"))
              criarNomeImagem(letra: "O")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.P_Button?.contains(point))! {
             print(dbgmsg + "Letra P pressionada")
             self.P_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "P_selecionado"))
              criarNomeImagem(letra: "P")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.Q_Button?.contains(point))! {
             print(dbgmsg + "Letra Q pressionada")
             self.Q_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "Q_selecionado"))
              criarNomeImagem(letra: "Q")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.R_Button?.contains(point))! {
             print(dbgmsg + "Letra R pressionada")
             self.R_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "R_selecionado"))
              criarNomeImagem(letra: "R")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.S_Button?.contains(point))! {
             print(dbgmsg + "Letra S pressionada")
             self.S_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "S_selecionado"))
              criarNomeImagem(letra: "S")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.T_Button?.contains(point))! {
             print(dbgmsg + "Letra T pressionada")
             self.T_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "T_selecionado"))
             criarNomeImagem(letra: "T")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.U_Button?.contains(point))! {
             print(dbgmsg + "Letra U pressionada")
             self.U_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "U_selecionado"))
              criarNomeImagem(letra: "U")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.V_Button?.contains(point))! {
             print(dbgmsg + "Letra V pressionada")
             self.V_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "V_selecionado"))
              criarNomeImagem(letra: "V")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.W_Button?.contains(point))! {
             print(dbgmsg + "Letra W pressionada")
             self.W_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "W_selecionado"))
              criarNomeImagem(letra: "W")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.X_Button?.contains(point))! {
             print(dbgmsg + "Letra X pressionada")
             self.X_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "X_selecionado"))
              criarNomeImagem(letra: "X")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.Y_Button?.contains(point))! {
             print(dbgmsg + "Letra Y pressionada")
             self.Y_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "Y_selecionado"))
              criarNomeImagem(letra: "Y")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.Z_Button?.contains(point))! {
             print(dbgmsg + "Letra Z pressionada")
             self.Z_Button?.texture = trocarTextura(imagem: #imageLiteral(resourceName: "Z_selecionado"))
              criarNomeImagem(letra: "Z")
+             self.qtAtualDeCaracteres = self.qtAtualDeCaracteres - 1
             
         }else if (self.RefazerButton?.contains(point))! {
             print(dbgmsg + "REFAZER pressionado")
-            refazer()
+            refazer(imagemExercicio: self.listaDeImagens![self.indiceAtual])
             
             
         }else if (self.VoltarLetraButton?.contains(point))! {
@@ -354,11 +383,13 @@ class GameScene: SKScene {
     /*Este metodo reseta o trabalho em andamento ate o momento (ou quando o usuario erra
      a palavra). Ele serve para apagar a palavra descrita pelo usuario (fazer o label receber
      uma string vazia)  e tambem coloca os botoes das letras em seu estado atual*/
-    func refazer(){
+    func refazer(imagemExercicio: ImagemExercicio){
         
-        colocarTexturasOriginaisLetras()
         self.NomeImagem?.text = ""
         self.nomeDaImagemASerFormada = ""
+        self.qtAtualDeCaracteres =  getQtLetrasString(imagem: imagemExercicio)
+        print(dbgmsg + "Refazendo...Qt. de caracteres do nome da imagem: \(self.qtAtualDeCaracteres)")
+        
     }
     
     
@@ -377,6 +408,7 @@ class GameScene: SKScene {
             let novoNomeDaImagem = String(describing: self.nomeDaImagemASerFormada!.dropLast())
             self.NomeImagem?.text = novoNomeDaImagem
             self.nomeDaImagemASerFormada = novoNomeDaImagem
+            self.qtAtualDeCaracteres = self.qtAtualDeCaracteres + 1
         }
     }
     
@@ -424,16 +456,27 @@ class GameScene: SKScene {
         let imgsEmbaralhadas = imagens.shuffled()
         self.listaDeImagens = imgsEmbaralhadas
         
-        print(dbgmsg + "Quantidade de imagens carregadas: \(self.listaDeImagens?.count)")
-        
         //Colocando a imagem como textura para ser mostrada na tela
         let texture = trocarTextura(imagem: (self.listaDeImagens?.first?.asset)!)
         self.Imagem?.texture = texture
+        
+        //carregando a quantidade de letras que a primeira palavra a ser mostrada tem
+        self.qtAtualDeCaracteres = getQtLetrasString(imagem: (self.listaDeImagens?.first)!)
+        
+        print(dbgmsg + "Quantidade de imagens carregadas: \(self.listaDeImagens?.count)")
+        print(dbgmsg + "Quantidade de caracteres da 1a palavra: \(self.qtAtualDeCaracteres)")
+       
+        
     }
     
     
+    //Esta funcao tem por objetivo retornar a quantidade de letras que uma string tem
+    func getQtLetrasString(imagem: ImagemExercicio) -> Int {
+        return (imagem.nome?.count)!
+    }
     
-    //Esta funcao tem por objetivo verificar se a palavra foi escrita corretamente
+    
+   
     
     
     
