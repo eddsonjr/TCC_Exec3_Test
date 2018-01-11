@@ -129,6 +129,9 @@ class GameScene: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
        colocarTexturasOriginaisLetras()
+        
+       
+        
        
         
     }
@@ -140,7 +143,6 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         
-        
         //Verifica se houve acerto ou erro da parte do usuario e providencia as respectivas acoes
         if self.qtAtualDeCaracteres == 0 {
             print(dbgmsg + "Usuario digitou a quantidade de caracteres equivalente ao nome da imagem")
@@ -150,17 +152,22 @@ class GameScene: SKScene {
                 
                 /*Adicionar um alertview aqui para mostrar o acerto e o erro*/
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                    
                     self.carregarProximaImagem(texture: self.trocarTextura(imagem: self.listaDeImagens![self.indiceAtual].asset!))
                     
                 })
+                return
                 
-              return
+                
+                
             }else {
                 print(dbgmsg + "Usuario errou o nome da imagem... ")
                 refazer(imagemExercicio: self.listaDeImagens![self.indiceAtual])
             }
-        
+            
         }
+        
+        
        
     }
     
