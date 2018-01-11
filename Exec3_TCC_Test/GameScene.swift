@@ -142,6 +142,12 @@ class GameScene: SKScene {
         //Verifica se houve acerto ou erro da parte do usuario e providencia as respectivas acoes
         if self.qtAtualDeCaracteres == 0 {
             print(dbgmsg + "Usuario digitou a quantidade de caracteres equivalente ao nome da imagem")
+            if verificarAcertos(imagem: self.listaDeImagens![self.indiceAtual]){
+                print(dbgmsg + "Usuario acertou o nome da imagem...")
+            }else {
+                print(dbgmsg + "Usuario errou o nome da imagem... ")
+            }
+        
         }
        
     }
@@ -474,6 +480,17 @@ class GameScene: SKScene {
     func getQtLetrasString(imagem: ImagemExercicio) -> Int {
         return (imagem.nome?.count)!
     }
+    
+    //Esta funcao serve para verificar se o usuario acertou ou errou o nome da imagem
+    func verificarAcertos(imagem: ImagemExercicio) -> Bool {
+        if(self.nomeDaImagemASerFormada.caseInsensitiveCompare(imagem.nome!) == ComparisonResult.orderedSame) {
+            return true
+        }else{
+            return false
+        }
+        
+    }
+    
     
     
    
