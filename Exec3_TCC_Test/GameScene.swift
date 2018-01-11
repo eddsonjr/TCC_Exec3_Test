@@ -88,6 +88,8 @@ class GameScene: SKScene {
         carregarDiversasImagens(imagens: ImagemExercicioStore.getAllImagensExecs(), qtImagens: 3)
         //carregando diversas imagens do Store
         
+      
+        
     }
     
   
@@ -144,6 +146,15 @@ class GameScene: SKScene {
             print(dbgmsg + "Usuario digitou a quantidade de caracteres equivalente ao nome da imagem")
             if verificarAcertos(imagem: self.listaDeImagens![self.indiceAtual]){
                 print(dbgmsg + "Usuario acertou o nome da imagem...")
+                self.indiceAtual = self.indiceAtual + 1
+                
+                /*Adicionar um alertview aqui para mostrar o acerto e o erro*/
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                    self.carregarProximaImagem(texture: self.trocarTextura(imagem: self.listaDeImagens![self.indiceAtual].asset!))
+                    
+                })
+                
+              return
             }else {
                 print(dbgmsg + "Usuario errou o nome da imagem... ")
                 refazer(imagemExercicio: self.listaDeImagens![self.indiceAtual])
@@ -494,20 +505,21 @@ class GameScene: SKScene {
     
     
     
+    /*Esta funcao serve para atualizar a textura da imagem que sera mostrada posteriormente
+     caso o usuario acerte o nome da imagem*/
+    func carregarProximaImagem(texture: SKTexture){
+        
+        self.Imagem?.texture = texture
+        self.nomeDaImagemASerFormada = ""
+        self.NomeImagem?.text = nomeDaImagemASerFormada
+        
+    }
     
     
     
-   
     
     
-    
-    
-   
-    
-    
-    
-    
-    
+  
     
     
 }
