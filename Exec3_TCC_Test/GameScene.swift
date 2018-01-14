@@ -80,7 +80,9 @@ class GameScene: SKScene {
     
     
     
-    
+    //Variaveis do tipo alerta
+    var alerta: SCLAlertView? = nil
+
     
     override func didMove(to view: SKView) {
         setupSprites()//configurando o que sera mostrado na cena
@@ -143,32 +145,6 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         
-        //Verifica se houve acerto ou erro da parte do usuario e providencia as respectivas acoes
-        if self.qtAtualDeCaracteres == 0 {
-            print(dbgmsg + "Usuario digitou a quantidade de caracteres equivalente ao nome da imagem")
-            if verificarAcertos(imagem: self.listaDeImagens![self.indiceAtual]){
-                print(dbgmsg + "Usuario acertou o nome da imagem...")
-                self.indiceAtual = self.indiceAtual + 1
-                
-                /*Adicionar um alertview aqui para mostrar o acerto e o erro*/
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                    
-                    self.carregarProximaImagem(texture: self.trocarTextura(imagem: self.listaDeImagens![self.indiceAtual].asset!))
-                    
-                })
-                return
-                
-                
-                
-            }else {
-                print(dbgmsg + "Usuario errou o nome da imagem... ")
-                refazer(imagemExercicio: self.listaDeImagens![self.indiceAtual])
-            }
-            
-        }
-        
-        
-       
     }
     
     
@@ -390,10 +366,17 @@ class GameScene: SKScene {
             
         }else if (self.VoltarLetraButton?.contains(point))! {
             removerUltimaLetra()
-            
-            
-            
         }
+        
+        
+        
+        
+        //Verificando se o usuario acertou ou nao a palavra
+        if self.qtAtualDeCaracteres == 0 {
+            verificarAcerto(imagem: self.listaDeImagens![self.indiceAtual])
+        }
+        
+        
         
     }
     
@@ -501,7 +484,7 @@ class GameScene: SKScene {
     }
     
     //Esta funcao serve para verificar se o usuario acertou ou errou o nome da imagem
-    func verificarAcertos(imagem: ImagemExercicio) -> Bool {
+    func verificarAcertoNaPalavra(imagem: ImagemExercicio) -> Bool {
         if(self.nomeDaImagemASerFormada.caseInsensitiveCompare(imagem.nome!) == ComparisonResult.orderedSame) {
             return true
         }else{
@@ -520,6 +503,70 @@ class GameScene: SKScene {
         self.nomeDaImagemASerFormada = ""
         self.NomeImagem?.text = nomeDaImagemASerFormada
         
+    }
+    
+    
+  
+    
+    /*Este metodo tem por objetivo alertar o usuário sobre ele ter acertado ou errado
+     o exercicio*/
+    func alertarUsuario(mostrarMsgAcerto: Bool) {
+        
+        /*Alterando a aparencia do alerta*/
+        let appearance = SCLAlertView.SCLAppearance(
+            kWindowWidth: CGFloat(280), kWindowHeight: CGFloat(196), kTitleFont: UIFont(name: "HelveticaNeue", size: 24)!,
+            kTextFont: UIFont(name: "HelveticaNeue", size: 21)!,
+            
+            
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 18)!,
+            showCloseButton: false
+        )
+        
+        self.alerta = SCLAlertView(appearance: appearance)
+        
+        if(mostrarMsgAcerto){ //configura o alerta exibir a mensagem de acerto junto com um botao para
+                    //carregar a proxima imagem
+            
+            self.alerta?.addButton("Ok", action: {
+                print(self.dbgmsg + "[Alerta]Carregando a proxima imagem para mostrar para o usuario")
+                 self.carregarProximaImagem(texture: self.trocarTextura(imagem: self.listaDeImagens![self.indiceAtual].asset!)) //carrega a proxima imagem a ser mostrada assim
+                                                 //que o usuario aperta no ok na tela
+                
+                self.qtAtualDeCaracteres = self.getQtLetrasString(imagem: self.listaDeImagens![self.indiceAtual])
+                
+                
+                
+            })
+            
+            self.alerta?.showSuccess("Parabéns", subTitle: "Você acertou o nome da imagem \n")
+            
+        }else{
+            self.alerta?.addButton("Ok", action: {
+                print(self.dbgmsg + "[Alerta]Refazendo o mesmo exercicio.")
+                self.refazer(imagemExercicio: self.listaDeImagens![self.indiceAtual])
+                //caso o usuario erre o nome da imagem, ele simplesmente ira refazer o exercicio
+                
+            })
+            
+            self.alerta?.showError("Poxa!", subTitle: "Você errou o nome da imagem. Tente novamente!")
+        }
+        
+        
+    }
+    
+    
+    
+    /*A funcao abaixo server para verificar se a pessoa acertou o exercicio ou nao. Caso ela
+     tenha acertado, carregue a proxima imagem. Caso ela tenha errado, refaca o exercicio*/
+    func verificarAcerto(imagem: ImagemExercicio) {
+        if verificarAcertoNaPalavra(imagem: imagem) {
+            print(dbgmsg + "O usuario acertou o nome da imagem")
+            self.indiceAtual = self.indiceAtual + 1
+            alertarUsuario(mostrarMsgAcerto: true)
+        }else {
+            print(dbgmsg + "O usuario errou o nome da imagem")
+            alertarUsuario(mostrarMsgAcerto: false)
+        }
     }
     
     

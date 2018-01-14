@@ -18,6 +18,8 @@
 		AD6194F820079ECE00BFC47E /* ImagemExercicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6194F620079ECE00BFC47E /* ImagemExercicio.swift */; };
 		AD6194F920079ECE00BFC47E /* ImagemExercicioStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6194F720079ECE00BFC47E /* ImagemExercicioStore.swift */; };
 		AD6194FB2007A10200BFC47E /* Array_extension_shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6194FA2007A10200BFC47E /* Array_extension_shuffle.swift */; };
+		AD6865D1200ABDF000FBD75E /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6865CF200ABDEF00FBD75E /* SCLAlertView.swift */; };
+		AD6865D2200ABDF000FBD75E /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6865D0200ABDEF00FBD75E /* SCLExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		AD6194F620079ECE00BFC47E /* ImagemExercicio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagemExercicio.swift; sourceTree = "<group>"; };
 		AD6194F720079ECE00BFC47E /* ImagemExercicioStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagemExercicioStore.swift; sourceTree = "<group>"; };
 		AD6194FA2007A10200BFC47E /* Array_extension_shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array_extension_shuffle.swift; sourceTree = "<group>"; };
+		AD6865CF200ABDEF00FBD75E /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		AD6865D0200ABDEF00FBD75E /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +70,9 @@
 		AD57AE8B2003ABB100038F67 /* Exec3_TCC_Test */ = {
 			isa = PBXGroup;
 			children = (
-				AD6194FA2007A10200BFC47E /* Array_extension_shuffle.swift */,
-				AD6194F620079ECE00BFC47E /* ImagemExercicio.swift */,
-				AD6194F720079ECE00BFC47E /* ImagemExercicioStore.swift */,
+				AD6865D5200ABE3300FBD75E /* extensions */,
+				AD6865D4200ABE1E00FBD75E /* ImagemStore */,
+				AD6865D3200ABDF800FBD75E /* scalertview */,
 				AD57AE8C2003ABB100038F67 /* AppDelegate.swift */,
 				AD57AE8E2003ABB100038F67 /* GameScene.sks */,
 				AD57AE902003ABB100038F67 /* Actions.sks */,
@@ -80,6 +84,32 @@
 				AD57AE9E2003ABB100038F67 /* Info.plist */,
 			);
 			path = Exec3_TCC_Test;
+			sourceTree = "<group>";
+		};
+		AD6865D3200ABDF800FBD75E /* scalertview */ = {
+			isa = PBXGroup;
+			children = (
+				AD6865CF200ABDEF00FBD75E /* SCLAlertView.swift */,
+				AD6865D0200ABDEF00FBD75E /* SCLExtensions.swift */,
+			);
+			path = scalertview;
+			sourceTree = "<group>";
+		};
+		AD6865D4200ABE1E00FBD75E /* ImagemStore */ = {
+			isa = PBXGroup;
+			children = (
+				AD6194F620079ECE00BFC47E /* ImagemExercicio.swift */,
+				AD6194F720079ECE00BFC47E /* ImagemExercicioStore.swift */,
+			);
+			path = ImagemStore;
+			sourceTree = "<group>";
+		};
+		AD6865D5200ABE3300FBD75E /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AD6194FA2007A10200BFC47E /* Array_extension_shuffle.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,11 +186,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD6865D2200ABDF000FBD75E /* SCLExtensions.swift in Sources */,
 				AD57AE932003ABB100038F67 /* GameScene.swift in Sources */,
 				AD6194FB2007A10200BFC47E /* Array_extension_shuffle.swift in Sources */,
 				AD57AE952003ABB100038F67 /* GameViewController.swift in Sources */,
 				AD57AE8D2003ABB100038F67 /* AppDelegate.swift in Sources */,
 				AD6194F920079ECE00BFC47E /* ImagemExercicioStore.swift in Sources */,
+				AD6865D1200ABDF000FBD75E /* SCLAlertView.swift in Sources */,
 				AD6194F820079ECE00BFC47E /* ImagemExercicio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
